@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apex Lab - Premium Paint Protection & Detailing</title>
-    <!-- Added Font Awesome for the social media and phone icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         /* Global Styles */
@@ -18,7 +17,7 @@
             background-color: #050507;
             color: white;
             overflow-x: hidden;
-            padding-bottom: 60px; /* space for fixed footer */
+            padding-bottom: 60px;
         }
         a {
             text-decoration: none;
@@ -26,14 +25,14 @@
             transition: opacity 0.3s ease;
         }
 
-        /* Navigation Bar */
+        /* Navigation Bar - Stretched height to keep logo on the same line */
         .nav-bar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 90px; /* Adjusted header height for better proportions */
-            background-color: rgba(5, 5, 7, 0.75);
+            height: 320px; 
+            background-color: rgba(5, 5, 7, 0.85);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             z-index: 1000;
@@ -45,9 +44,8 @@
         }
         .nav-bar__logo-link {
             display: flex;
-            align-items: flex-start; /* Align to top so it hangs down nicely */
-            height: 90px;
-            position: relative;
+            align-items: center; 
+            height: 100%;
             z-index: 1001;
         }
         .nav-bar__logo-img {
@@ -74,6 +72,7 @@
         .nav-bar__action-wrapper {
             display: flex;
             justify-content: flex-end;
+            z-index: 1001;
         }
         .nav-bar__action-button {
             padding: 10px 20px;
@@ -94,7 +93,7 @@
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
         }
 
-        /* Hero Section */
+        /* Hero Section - Pushed down to clear the giant navbar */
         .hero-section {
             display: flex;
             flex-direction: column;
@@ -102,13 +101,12 @@
             justify-content: center;
             text-align: center;
             min-height: 90vh;
-            padding: 160px 20px 80px 20px; /* Increased top padding to accommodate hanging logo */
+            padding: 360px 20px 80px 20px; 
             background: radial-gradient(circle at center, rgba(225, 29, 72, 0.05) 0%, transparent 70%);
             position: relative;
             overflow: hidden;
         }
         
-        /* Video Styling */
         .hero-video {
             position: absolute;
             top: 0;
@@ -299,7 +297,7 @@
             transform: scale(1.02);
         }
 
-        /* Side-by-Side Split Booking Layout */
+        /* Booking Layout */
         .booking-section {
             max-width: 1200px;
             margin: 40px auto 100px auto;
@@ -326,7 +324,6 @@
             align-items: center;
         }
         
-        /* Google Maps Container & Premium Styling */
         .google-maps-wrapper {
             width: 100%;
             height: 350px;
@@ -346,7 +343,6 @@
             left: 0;
         }
 
-        /* Social Media Icons & Info under Map */
         .map-socials {
             display: flex;
             justify-content: center;
@@ -366,7 +362,6 @@
             transform: translateY(-3px);
         }
         
-        /* Structured Phone Container with Call Icon */
         .map-phone-wrapper {
             display: flex;
             align-items: center;
@@ -381,11 +376,7 @@
         .map-phone-wrapper:hover {
             color: white;
         }
-        .map-phone-wrapper i {
-            font-size: 14px;
-        }
 
-        /* Premium Form Styling */
         .form-group {
             margin-bottom: 24px;
         }
@@ -413,7 +404,6 @@
             border-color: rgba(255, 255, 255, 0.25);
         }
 
-        /* Logical Checklist Group Layout styling */
         .selection-box {
             background-color: #121214;
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -510,7 +500,7 @@
             transform: translateY(-2px);
         }
 
-        /* Responsive design rules */
+        /* Responsive rules */
         @media (max-width: 768px) {
             footer { padding: 0 20px; }
             .footer__copy { margin-right: 12px; }
@@ -534,8 +524,8 @@
                 min-height: 90px;
             }
             .nav-bar__links, .nav-bar__action-wrapper, .nav-bar__logo-link { display: none; }
+            .hero-section { padding-top: 160px; }
             
-            /* Responsive layout configurations for mobile splitting */
             .booking-section { padding: 0 20px; }
             .booking-split-wrapper {
                 grid-template-columns: 1fr;
@@ -548,7 +538,6 @@
                 border-top: 1px solid rgba(255, 255, 255, 0.06);
             }
             .google-maps-wrapper { min-height: 280px; margin-bottom: 20px; }
-            .map-socials { margin-top: 10px; }
         }
     </style>
 </head>
@@ -664,11 +653,9 @@
         </div>
     </section>
 
-    <!-- Side-by-Side Booking Section -->
     <section class="booking-section" id="portal">
         <div class="booking-split-wrapper">
             
-            <!-- Left Side: Booking Form -->
             <div class="booking-container">
                 <h2 style="font-size: 24px; letter-spacing: -0.03em; margin-bottom: 8px; text-align: center;">Booking Request</h2>
                 <p style="color: #71717a; font-size: 14px; text-align: center; margin-bottom: 32px;">Fill out your details below to instantly route your slot request to our team via WhatsApp.</p>
@@ -684,7 +671,6 @@
                         <input type="text" id="carModel" placeholder="e.g. Honda Civic FE 2022" required>
                     </div>
 
-                    <!-- Optimized Logical Packages Checklist Layout -->
                     <div class="form-group">
                         <label>Select Treatments</label>
                         <div class="selection-box">
@@ -723,12 +709,10 @@
                 </form>
             </div>
 
-            <!-- Right Side: Find Us Map & Contextual Links -->
             <div class="map-container-side">
                 <h2 style="font-size: 24px; letter-spacing: -0.03em; margin-bottom: 8px; text-align: center;">Find Us</h2>
                 <p style="color: #71717a; font-size: 14px; text-align: center; margin-bottom: 32px;">Our custom closed-environment clean studio setup location.</p>
                 
-                <!-- Google Maps Embed Mount Point -->
                 <div class="google-maps-wrapper">
                     <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.8842654313277!2d101.68432507604473!3d3.1390009535787684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc362abd73ac43%3A0x3ffbc6fb9aa15a24!2sKuala%20Lumpur%20Sentral!5e0!3m2!1sen!2smy!4v1710000000000!5m2!1sen!2smy" 
@@ -738,7 +722,6 @@
                     </iframe>
                 </div>
 
-                <!-- Contextual Social Media Icons directly below map -->
                 <div class="map-socials">
                     <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="map-socials__link" aria-label="Instagram">
                         <i class="fab fa-instagram"></i>
@@ -751,7 +734,6 @@
                     </a>
                 </div>
 
-                <!-- Phone number with call icon directly next to it -->
                 <a href="tel:+60102697127" class="map-phone-wrapper">
                     <i class="fa-solid fa-phone"></i>
                     <span>+60102697127</span>
@@ -762,13 +744,9 @@
     </section>
 
     <footer>
-        <div class="footer__links">
-            <!-- Left blank per requirement -->
-        </div>
-        
+        <div class="footer__links"></div>
         <div class="footer__right-side">
             <div class="footer__copy">© 2026 Apex Lab. All rights reserved.</div>
-            
             <div class="footer__socials">
                 <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer__social-icon" aria-label="Facebook">
                     <i class="fab fa-facebook-f"></i>
@@ -784,18 +762,14 @@
     </footer>
 
     <script type="text/javascript">
-        // --- WhatsApp Action Submission Logic ---
         document.getElementById('whatsappForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
             const name = document.getElementById('clientName').value;
             const car = document.getElementById('carModel').value;
             const date = document.getElementById('bookingDate').value;
-
-            // Get selected core base package
             const selectedBase = document.querySelector('input[name="baseTier"]:checked').value;
             
-            // Collect any checked add-ons
             const checkedAddons = document.querySelectorAll('input[name="addonService"]:checked');
             let addonText = "";
             if (checkedAddons.length > 0) {
