@@ -182,7 +182,7 @@
 
         /* Bento Grid Portfolio */
         .portfolio-section {
-            padding: 100px 40px 40px 40px;
+            padding: 100px 40px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -237,12 +237,12 @@
             line-height: 1.5;
         }
 
-        /* Pricing Section Styles */
+        /* Interactive Pricing Section Styles */
         .pricing-section {
-            padding: 60px 40px 100px 40px;
+            padding: 100px 40px;
             max-width: 1200px;
             margin: 0 auto;
-            background: radial-gradient(circle at bottom, rgba(225, 29, 72, 0.02) 0%, transparent 60%);
+            background: radial-gradient(circle at bottom, rgba(225, 29, 72, 0.03) 0%, transparent 60%);
         }
         .pricing-switcher {
             display: flex;
@@ -269,9 +269,8 @@
         }
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-            margin-bottom: 60px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
         }
         .price-card {
             background: #0c0c0e;
@@ -281,7 +280,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 260px;
+            min-height: 320px;
             transition: border-color 0.3s ease;
         }
         .price-card:hover {
@@ -309,62 +308,6 @@
             color: #71717a;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-        }
-
-        /* Special Vehicles Layout */
-        .special-vehicles-container {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px dashed rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 40px;
-        }
-        .special-title {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            text-align: center;
-            letter-spacing: -0.02em;
-        }
-        .special-subtitle {
-            font-size: 14px;
-            color: #a1a1aa;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .special-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-        }
-        .special-card {
-            background: #050507;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 14px;
-            padding: 24px;
-        }
-        .special-card__name {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: white;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            padding-bottom: 10px;
-        }
-        .special-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            font-size: 15px;
-        }
-        .special-row:last-child {
-            margin-bottom: 0;
-        }
-        .special-row__type {
-            color: #a1a1aa;
-        }
-        .special-row__price {
-            font-weight: 700;
-            color: white;
         }
 
         /* Booking Layout */
@@ -474,6 +417,34 @@
             border-color: rgba(255, 255, 255, 0.25);
         }
 
+        .selection-box {
+            background-color: #121214;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .selection-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #a1a1aa;
+            transition: color 0.2s ease;
+            user-select: none;
+        }
+        .selection-item:hover {
+            color: white;
+        }
+        .selection-item input {
+            accent-color: white;
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+
         .submit-btn {
             width: 100%;
             padding: 16px;
@@ -533,17 +504,26 @@
         }
 
         /* Responsive rules */
+        @media (max-width: 1024px) {
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
             footer { padding: 0 20px; }
             .footer__copy { margin-right: 12px; }
             .footer__socials { gap: 12px; }
             
-            .bento-grid, .pricing-grid, .special-grid { 
+            .bento-grid { 
                 grid-template-columns: 1fr; 
                 grid-auto-rows: auto;
             }
             .bento-card {
                 min-height: 280px;
+            }
+            .pricing-grid {
+                grid-template-columns: 1fr;
             }
             .hero-section__headline { font-size: 38px; }
             
@@ -606,12 +586,12 @@
         </div>
     </section>
 
-    <!-- Services Overview Section -->
+    <!-- Simplified Services Section -->
     <section class="portfolio-section" id="treatments">
         <h2 class="section-title">Studio Services</h2>
         <div class="bento-grid">
             
-            <!-- Service 1: Car Wash -->
+            <!-- Group 1: Car Wash -->
             <div class="bento-card" style="background-image: linear-gradient(rgba(5,5,7,0.1), rgba(5,5,7,0.95)), url('detailing.webp');">
                 <div class="bento-card__content">
                     <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: #a1a1aa; font-weight: 700;">Exterior Base</span>
@@ -620,7 +600,7 @@
                 </div>
             </div>
 
-            <!-- Service 2: Interior Cleaning -->
+            <!-- Group 2: Interior Cleaning -->
             <div class="bento-card" style="background-image: linear-gradient(rgba(5,5,7,0.1), rgba(5,5,7,0.95)), url('interior.webp');">
                 <div class="bento-card__content">
                     <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: #a1a1aa; font-weight: 700;">Cabin Refresh</span>
@@ -629,25 +609,43 @@
                 </div>
             </div>
 
+            <!-- Group 3: Polish -->
+            <div class="bento-card" style="background-image: linear-gradient(rgba(5,5,7,0.1), rgba(5,5,7,0.95)), url('paint correction.webp');">
+                <div class="bento-card__content">
+                    <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: #a1a1aa; font-weight: 700;">Defect Removal</span>
+                    <h3 class="bento-card__title">Polish</h3>
+                    <p class="bento-card__description">Removes scratches and swirl marks to make the paint look brand new.</p>
+                </div>
+            </div>
+
+            <!-- Group 4: Coating -->
+            <div class="bento-card" style="background-image: linear-gradient(rgba(5,5,7,0.1), rgba(5,5,7,0.95)), url('ceramic coating.webp');">
+                <div class="bento-card__content">
+                    <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: #a1a1aa; font-weight: 700;">Surface Armor</span>
+                    <h3 class="bento-card__title">Coating</h3>
+                    <p class="bento-card__description">Adds a long-lasting protective layer that keeps the car shiny and easy to clean.</p>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- DYNAMIC PRICING SECTION -->
+    <!-- NEW INTERACTIVE PRICING SECTION -->
     <section class="pricing-section" id="pricing">
         <h2 class="section-title" style="margin-bottom: 10px;">Transparent Pricing</h2>
-        <p style="text-align: center; color: #a1a1aa; margin-bottom: 40px; font-size: 15px;">Select your vehicle class to view exact packaging rates.</p>
+        <p style="text-align: center; color: #a1a1aa; margin-bottom: 40px; font-size: 15px;">Select your vehicle scale to display exact matrix packaging parameters.</p>
 
-        <!-- Standard Vehicle Selectors -->
         <div class="pricing-switcher">
             <button onclick="changeVehicleSize('compact')" id="size-compact" class="switcher-btn active">Compact</button>
             <button onclick="changeVehicleSize('luxury')" id="size-luxury" class="switcher-btn">Luxury</button>
             <button onclick="changeVehicleSize('suv')" id="size-suv" class="switcher-btn">SUV</button>
             <button onclick="changeVehicleSize('mpv')" id="size-mpv" class="switcher-btn">MPV / 4x4++</button>
+            <button onclick="changeVehicleSize('van')" id="size-van" class="switcher-btn">Van</button>
+            <button onclick="changeVehicleSize('lorry')" id="size-lorry" class="switcher-btn">Lorry</button>
         </div>
 
-        <!-- Standard Core Grid -->
         <div class="pricing-grid">
-            <!-- Wash Card -->
+            <!-- Wash Package Card -->
             <div class="price-card">
                 <div>
                     <h3 class="price-card__title">Car Wash</h3>
@@ -659,7 +657,7 @@
                 </div>
             </div>
 
-            <!-- Interior Card -->
+            <!-- Interior Package Card -->
             <div class="price-card">
                 <div>
                     <h3 class="price-card__title">Interior Cleaning</h3>
@@ -670,44 +668,33 @@
                     <span class="price-card__label" id="label-interior">Nano Mist Base</span>
                 </div>
             </div>
-        </div>
 
-        <!-- SPECIAL VEHICLES LAYOUT COMPONENT -->
-        <div class="special-vehicles-container">
-            <h3 class="special-title">Special Vehicle Parameters</h3>
-            <p class="special-subtitle">Flat rate structural maintenance built for larger utility platforms.</p>
-            
-            <div class="special-grid">
-                <!-- Van Card -->
-                <div class="special-card">
-                    <div class="special-card__name">Van Packages</div>
-                    <div class="special-row">
-                        <span class="special-row__type">Normal Wash</span>
-                        <span class="special-row__price">RM 40</span>
-                    </div>
-                    <div class="special-row">
-                        <span class="special-row__type">Chemical Wash</span>
-                        <span class="special-row__price">RM 60</span>
-                    </div>
+            <!-- Polish Package Card -->
+            <div class="price-card">
+                <div>
+                    <h3 class="price-card__title">Polish</h3>
+                    <p class="price-card__desc">Machine correction pathways configured to permanently level surface defects and swirl marring.</p>
                 </div>
+                <div>
+                    <div class="price-card__amount">RM <span id="val-polish">199</span></div>
+                    <span class="price-card__label" id="label-polish">1-Step Polish</span>
+                </div>
+            </div>
 
-                <!-- Lorry Card -->
-                <div class="special-card">
-                    <div class="special-card__name">Lorry Packages</div>
-                    <div class="special-row">
-                        <span class="special-row__type">Normal Wash</span>
-                        <span class="special-row__price">RM 50</span>
-                    </div>
-                    <div class="special-row">
-                        <span class="special-row__type">Chemical Wash</span>
-                        <span class="special-row__price">RM 80</span>
-                    </div>
+            <!-- Coating Package Card -->
+            <div class="price-card">
+                <div>
+                    <h3 class="price-card__title">Coating</h3>
+                    <p class="price-card__desc">High-solids hydrophobic protective barriers engineered to seal depth and repel contamination.</p>
+                </div>
+                <div>
+                    <div class="price-card__amount">RM <span id="val-coating">50</span></div>
+                    <span class="price-card__label" id="label-coating">Water Coating</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Booking Form Infrastructure -->
     <section class="booking-section" id="portal">
         <div class="booking-split-wrapper">
             
@@ -743,6 +730,8 @@
                         <select id="formService">
                             <option value="Car Wash Tier">Premium Car Wash</option>
                             <option value="Interior Cleaning Tier">Interior Cleaning Package</option>
+                            <option value="Polishing Paint Correction Tier">Machine Polishing System</option>
+                            <option value="Protective Coating Tier">Advanced Protective Coating</option>
                         </select>
                     </div>
 
@@ -809,29 +798,35 @@
 
     <!-- Scripting Infrastructure for Matrix Logic Switching -->
     <script type="text/javascript">
-        // Compiled raw standard data structures from core matrix
+        // Compiled raw data structure transcribed directly from matrix
         const studioPricingMatrix = {
-            compact: { wash: "15", interior: "25", washLabel: "Normal Wash", intLabel: "Nano Mist Base" },
-            luxury:  { wash: "20", interior: "35", washLabel: "Normal Wash", intLabel: "Nano Mist Base" },
-            suv:     { wash: "25", interior: "45", washLabel: "Normal Wash", intLabel: "Nano Mist Base" },
-            mpv:     { wash: "30", interior: "55", washLabel: "Normal Wash", intLabel: "Nano Mist Base" }
+            compact: { wash: "15", interior: "25", polish: "199", coating: "50", washLabel: "Normal Wash", intLabel: "Nano Mist Base", polLabel: "1-Step Polish", coatLabel: "Water Coating" },
+            luxury:  { wash: "20", interior: "35", polish: "299", coating: "60", washLabel: "Normal Wash", intLabel: "Nano Mist Base", polLabel: "1-Step Polish", coatLabel: "Water Coating" },
+            suv:     { wash: "25", interior: "45", polish: "399", coating: "78", washLabel: "Normal Wash", intLabel: "Nano Mist Base", polLabel: "1-Step Polish", coatLabel: "Water Coating" },
+            mpv:     { wash: "30", interior: "55", polish: "499", coating: "88", washLabel: "Normal Wash", intLabel: "Nano Mist Base", polLabel: "1-Step Polish", coatLabel: "Water Coating" },
+            van:     { wash: "40", interior: "N/A", polish: "N/A", coating: "60", washLabel: "Normal Wash", intLabel: "Not Available", polLabel: "Not Available", coatLabel: "Chemical Wash" },
+            lorry:   { wash: "50", interior: "N/A", polish: "N/A", coating: "80", washLabel: "Normal Wash", intLabel: "Not Available", polLabel: "Not Available", coatLabel: "Chemical Wash" }
         };
 
         function changeVehicleSize(targetSize) {
-            // Update node text values dynamically
+            // Update prices across view nodes
             document.getElementById('val-wash').innerText = studioPricingMatrix[targetSize].wash;
             document.getElementById('val-interior').innerText = studioPricingMatrix[targetSize].interior;
+            document.getElementById('val-polish').innerText = studioPricingMatrix[targetSize].polish;
+            document.getElementById('val-coating').innerText = studioPricingMatrix[targetSize].coating;
 
-            // Update data labels 
+            // Update subtext labels matching base matrix tiers
             document.getElementById('label-wash').innerText = studioPricingMatrix[targetSize].washLabel;
             document.getElementById('label-interior').innerText = studioPricingMatrix[targetSize].intLabel;
+            document.getElementById('label-polish').innerText = studioPricingMatrix[targetSize].polLabel;
+            document.getElementById('label-coating').innerText = studioPricingMatrix[targetSize].coatLabel;
 
-            // Style class switcher active balances
+            // Style class balancing
             document.querySelectorAll('.switcher-btn').forEach(btn => btn.classList.remove('active'));
             document.getElementById('size-' + targetSize).classList.add('active');
         }
 
-        // WhatsApp dispatch handling integration
+        // WhatsApp submit handler assembly
         document.getElementById('whatsappForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
