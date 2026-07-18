@@ -25,7 +25,7 @@
             transition: opacity 0.3s ease;
         }
 
-        /* Navigation Bar - Optimized for a clean, inline layout */
+        /* Navigation Bar - Size remains completely untouched at 120px */
         .nav-bar {
             position: fixed;
             top: 0;
@@ -42,21 +42,25 @@
             padding: 0 40px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
+        /* Absolute placement lets the logo scale up past 120px without pushing the navbar down */
         .nav-bar__logo-link {
+            position: absolute;
+            left: 40px;
+            top: 50%;
+            transform: translateY(-50%);
             display: flex;
             align-items: center; 
-            height: 100%;
-            z-index: 1001;
+            z-index: 1002;
         }
         .nav-bar__logo-img {
-            height: 100px; 
+            height: 220px; /* Made it way bigger */
             width: auto; 
             display: block;
-            object-fit: contain; /* Ensures the logo image doesn't get cropped by code */
+            object-fit: contain;
         }
         .nav-bar__links {
             position: absolute;
-            left: 50%;
+            left: 55%; /* Shifted right slightly to avoid overlapping the massive logo */
             transform: translateX(-50%);
             display: flex;
             align-items: center;
