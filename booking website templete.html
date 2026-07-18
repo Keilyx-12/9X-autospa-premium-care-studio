@@ -25,7 +25,7 @@
             transition: opacity 0.3s ease;
         }
 
-        /* Navigation Bar - Size remains completely untouched at 120px */
+        /* Navigation Bar - Size remains untouched at 120px */
         .nav-bar {
             position: fixed;
             top: 0;
@@ -42,25 +42,21 @@
             padding: 0 40px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
-        /* Absolute placement lets the logo scale up past 120px without pushing the navbar down */
         .nav-bar__logo-link {
-            position: absolute;
-            left: 40px;
-            top: 50%;
-            transform: translateY(-50%);
             display: flex;
             align-items: center; 
-            z-index: 1002;
+            z-index: 1001;
         }
+        /* Configured exactly to your new cropped dimensions */
         .nav-bar__logo-img {
-            height: 220px; /* Made it way bigger */
-            width: auto; 
+            width: 420px; 
+            height: 96px; 
             display: block;
             object-fit: contain;
         }
         .nav-bar__links {
             position: absolute;
-            left: 55%; /* Shifted right slightly to avoid overlapping the massive logo */
+            left: 55%; 
             transform: translateX(-50%);
             display: flex;
             align-items: center;
@@ -506,6 +502,16 @@
         }
 
         /* Responsive rules */
+        @media (max-width: 1024px) {
+            .nav-bar__logo-img {
+                width: 300px;
+                height: auto;
+            }
+            .nav-bar__links {
+                left: 60%;
+            }
+        }
+
         @media (max-width: 768px) {
             footer { padding: 0 20px; }
             .footer__copy { margin-right: 12px; }
