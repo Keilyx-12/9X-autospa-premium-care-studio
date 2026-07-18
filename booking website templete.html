@@ -37,18 +37,20 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             z-index: 1000;
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
             align-items: center;
-            justify-content: space-between;
             padding: 0 40px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
         .nav-bar__logo {
-            font-size: 24px;
-            letter-spacing: -0.04em;
-            font-weight: bold;
+            grid-column: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .nav-bar__links {
+            grid-column: 1;
             display: flex;
             align-items: center;
             gap: 30px;
@@ -60,6 +62,11 @@
         }
         .nav-bar__link:hover {
             color: white;
+        }
+        .nav-bar__action-wrapper {
+            grid-column: 3;
+            display: flex;
+            justify-content: flex-end;
         }
         .nav-bar__action-button {
             padding: 10px 20px;
@@ -509,7 +516,13 @@
             }
             .bento-card--large { grid-column: span 1; }
             .hero-section__headline { font-size: 38px; }
-            .nav-bar__links { display: none; }
+            
+            .nav-bar {
+                display: flex;
+                justify-content: center;
+                padding: 0 20px;
+            }
+            .nav-bar__links, .nav-bar__action-wrapper { display: none; }
             
             /* Responsive layout configurations for mobile splitting */
             .booking-section { padding: 0 20px; }
@@ -531,15 +544,17 @@
 <body>
 
     <div class="nav-bar">
-        <div class="nav-bar__logo">
-    <img src="logo.png" alt="Apex Lab Logo" style="height: 300px; width: auto; display: block;">
-</div>
         <div class="nav-bar__links">
             <a href="#treatments" class="nav-bar__link">Services</a>
             <a href="#portal" class="nav-bar__link">Book Now</a>
             <a href="#portal" class="nav-bar__link">Find Us</a>
         </div>
-        <a href="#portal" class="nav-bar__action-button">Get Started</a>
+        <div class="nav-bar__logo">
+            <img src="logo.png" alt="Apex Lab Logo" style="height: 40px; width: auto; display: block;">
+        </div>
+        <div class="nav-bar__action-wrapper">
+            <a href="#portal" class="nav-bar__action-button">Get Started</a>
+        </div>
     </div>
 
     <section class="hero-section">
