@@ -25,13 +25,13 @@
             transition: opacity 0.3s ease;
         }
 
-        /* Navigation Bar - Stretched height to keep logo on the same line */
+        /* Navigation Bar - Optimized for a clean, inline layout */
         .nav-bar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 320px; 
+            height: 120px; 
             background-color: rgba(5, 5, 7, 0.85);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
@@ -49,9 +49,10 @@
             z-index: 1001;
         }
         .nav-bar__logo-img {
-            height: 300px; 
+            height: 100px; 
             width: auto; 
             display: block;
+            object-fit: contain; /* Ensures the logo image doesn't get cropped by code */
         }
         .nav-bar__links {
             position: absolute;
@@ -93,7 +94,7 @@
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
         }
 
-        /* Hero Section - Pushed down to clear the giant navbar */
+        /* Hero Section */
         .hero-section {
             display: flex;
             flex-direction: column;
@@ -101,7 +102,7 @@
             justify-content: center;
             text-align: center;
             min-height: 90vh;
-            padding: 360px 20px 80px 20px; 
+            padding: 200px 20px 80px 20px; 
             background: radial-gradient(circle at center, rgba(225, 29, 72, 0.05) 0%, transparent 70%);
             position: relative;
             overflow: hidden;
@@ -524,7 +525,7 @@
                 min-height: 90px;
             }
             .nav-bar__links, .nav-bar__action-wrapper, .nav-bar__logo-link { display: none; }
-            .hero-section { padding-top: 160px; }
+            .hero-section { padding-top: 140px; }
             
             .booking-section { padding: 0 20px; }
             .booking-split-wrapper {
@@ -545,7 +546,7 @@
 
     <div class="nav-bar">
         <a href="#" class="nav-bar__logo-link">
-            <img src="logo.jpg" class="nav-bar__logo-img">
+            <img src="logo.png" alt="Apex Lab Logo" class="nav-bar__logo-img">
         </a>
         <div class="nav-bar__links">
             <a href="#treatments" class="nav-bar__link">Services</a>
