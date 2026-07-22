@@ -482,15 +482,30 @@
             const servicesText = services.length > 0 ? services.join(', ') : 'Not specified';
 
             const phoneNumber = '60179977133';
-            const message = `Hi 9X Autospa,%0A%0AI would like to lock in a detailing slot:%0A%0A` +
-                `• *Name:* ${encodeURIComponent(name)}%0A` +
-                `• *Vehicle:* ${encodeURIComponent(car)}%0A` +
-                `• *Size Class:* ${encodeURIComponent(size)}%0A` +
-                `• *Categories:* ${encodeURIComponent(categories.join(', '))}%0A` +
-                `• *Services:* ${encodeURIComponent(servicesText)}%0A` +
-                `• *Preferred Time:* ${encodeURIComponent(date)}%0A%0A` +
+            const message = `Hi 9X Autospa,\n\n` +
+                `I would like to lock in a detailing slot:\n\n` +
+                `• Name: ${name}\n` +
+                `• Vehicle: ${car}\n` +
+                `• Size Class: ${size}\n` +
+                `• Categories: ${categories.join(', ')}\n` +
+                `• Services: ${servicesText}\n` +
+                `• Preferred Time: ${date}\n\n` +
                 `Please let me know if this slot is available. Thanks!`;
-            window.open(`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`, '_blank');
+
+            // DO NOT USE window.open with _blank - TikTok blocks popup windows entirely!
+            const encodedText = encodeURIComponent(message);
+            const isAndroid = /android/i.test(navigator.userAgent || navigator.vendor);
+
+            if (isAndroid) {
+                // Android Intent deep link to escape TikTok webview
+                window.location.href = `intent://send?phone=${phoneNumber}&text=${encodedText}#Intent;package=com.whatsapp;scheme=whatsapp;end;`;
+            } else {
+                // iOS custom scheme + fallback to web api
+                window.location.href = `whatsapp://send?phone=${phoneNumber}&text=${encodedText}`;
+                setTimeout(function() {
+                    window.location.href = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedText}`;
+                }, 1200);
+            }
         });
     </script>
 
