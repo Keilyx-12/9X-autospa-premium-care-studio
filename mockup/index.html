@@ -462,18 +462,20 @@
 
         document.getElementById('whatsappForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const name = document.getElementById('clientName').value;
-            const car = document.getElementById('carModel').value;
+
+            // Collect form values as plain text
+            const name = document.getElementById('clientName').value.trim();
+            const car = document.getElementById('carModel').value.trim();
             const size = document.getElementById('formVehicleSize').value;
-            const date = document.getElementById('bookingDate').value;
+            const date = document.getElementById('bookingDate').value.trim();
 
             // Get selected categories
             const catChecked = document.querySelectorAll('input[name="category"]:checked');
-            const categories = Array.from(catChecked).map(cb => cb.value);
+            const categories = Array.from(catChecked).map(function(cb) { return cb.value; });
 
             // Get selected sub-services
             const svcChecked = document.querySelectorAll('input[name="subService"]:checked');
-            const services = Array.from(svcChecked).map(cb => cb.value);
+            const services = Array.from(svcChecked).map(function(cb) { return cb.value; });
 
             // Get PPF thickness if selected
             const ppfRadio = document.querySelector('input[name="ppfThickness"]:checked');
@@ -481,31 +483,26 @@
 
             const servicesText = services.length > 0 ? services.join(', ') : 'Not specified';
 
-            const phoneNumber = '60179977133';
-            const message = `Hi 9X Autospa,\n\n` +
-                `I would like to lock in a detailing slot:\n\n` +
-                `• Name: ${name}\n` +
-                `• Vehicle: ${car}\n` +
-                `• Size Class: ${size}\n` +
-                `• Categories: ${categories.join(', ')}\n` +
-                `• Services: ${servicesText}\n` +
-                `• Preferred Time: ${date}\n\n` +
-                `Please let me know if this slot is available. Thanks!`;
+            // Build plain text message (no special schemes, no markdown)
+            const message = 'Hi 9X Autospa,\n\n' +
+                'I would like to lock in a detailing slot:\n\n' +
+                'Name: ' + name + '\n' +
+                'Vehicle: ' + car + '\n' +
+                'Size Class: ' + size + '\n' +
+                'Categories: ' + categories.join(', ') + '\n' +
+                'Services: ' + servicesText + '\n' +
+                'Preferred Time: ' + date + '\n\n' +
+                'Please let me know if this slot is available. Thanks!';
 
-            // DO NOT USE window.open with _blank - TikTok blocks popup windows entirely!
+            // Encode the full message once at the end
             const encodedText = encodeURIComponent(message);
-            const isAndroid = /android/i.test(navigator.userAgent || navigator.vendor);
 
-            if (isAndroid) {
-                // Android Intent deep link to escape TikTok webview
-                window.location.href = `intent://send?phone=${phoneNumber}&text=${encodedText}#Intent;package=com.whatsapp;scheme=whatsapp;end;`;
-            } else {
-                // iOS custom scheme + fallback to web api
-                window.location.href = `whatsapp://send?phone=${phoneNumber}&text=${encodedText}`;
-                setTimeout(function() {
-                    window.location.href = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedText}`;
-                }, 1200);
-            }
+            // Use ONLY the official HTTPS WhatsApp API URL
+            // No intent://, no whatsapp://, no window.open — TikTok blocks all of those
+            const url = 'https://api.whatsapp.com/send?phone=60179977133&text=' + encodedText;
+
+            // Redirect in the same window to bypass TikTok webview restrictions
+            window.location.href = url;
         });
     </script>
 
