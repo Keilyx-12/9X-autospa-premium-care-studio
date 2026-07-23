@@ -568,6 +568,9 @@
                             <label class="checkbox-item">
                                 <input type="checkbox" name="category" value="PPF" onchange="showSubServices()"> <span>Paint Protection Film (PPF)</span>
                             </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="category" value="Promos" onchange="showSubServices()"> <span>Promotions & Combos</span>
+                            </label>
                         </div>
                     </div>
 
@@ -623,7 +626,8 @@
             'Interior': ['Nano Mist', 'Interior Panel Polish', 'Leather', 'Cushion'],
             'Coating': ['Water Coating', 'Wax Cleaning', 'Wax Shining'],
             'Advancing': ['Water Mark', 'Head Lamp Polish', '1-Step Polish', '3-Step Polish', 'Nano / Ceramic Coating'],
-            'PPF': ['7.5 MIL PPF', '8.5 MIL PPF', '10 MIL PPF']
+            'PPF': ['7.5 MIL PPF', '8.5 MIL PPF', '10 MIL PPF'],
+            'Promos': ['Bronze Touch', 'Mix Touch', 'Premium Touch', 'Silver Touch', 'Gold Touch', 'Full Body Wrap']
         };
 
         const categoryLabels = {
@@ -631,7 +635,8 @@
             'Interior': 'Interior — Select Services',
             'Coating': 'Coating — Select Services',
             'Advancing': 'Advancing — Select Services',
-            'PPF': 'PPF — Select Thickness'
+            'PPF': 'PPF — Select Thickness',
+            'Promos': 'Promotions & Combos — Select Package'
         };
 
         function showSubServices() {
